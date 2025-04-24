@@ -89,3 +89,9 @@ jobs:
         run: nmake
       - name: Run Tests
         run: nmake test TESTS="--show-diff tests"
+      - name: Upload Windows build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: uopz-${{ matrix.version }}-${{ matrix.arch }}-${{ matrix.ts }}
+          path: |
+            build\Release\uopz.dll
